@@ -9,10 +9,10 @@ def read(path):
 long_description = read('README.md')
 
 setup(
-    name='beb103_9_2',
+    name='beb103_9_1',
     version='0.0.1',
-    url='https://github.com/Lioscro/bebi103-9-2',
-    description='Pip-installable package with functions used in hw9.2',
+    url='https://github.com/jye309/bebi103-9-1',
+    description='Pip-installable package with functions used in hw9.1',
     long_description=long_description,
     long_description_content_type='text/markdown',
     python_requires='>=3.6',
