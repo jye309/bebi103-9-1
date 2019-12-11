@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import pandas as pd
+import holoviews as hv
 import scipy.optimize
 import scipy.stats as st
 import warnings
