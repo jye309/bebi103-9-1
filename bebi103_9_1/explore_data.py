@@ -50,4 +50,4 @@ def display_strip_box(df, kdmis, vdims):
         width=500
     )
 
-    box * strip
+    return box * strip
