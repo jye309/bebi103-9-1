@@ -4,9 +4,6 @@ import pandas as pd
 import scipy.optimize
 import scipy.stats as st
 import warnings
-import multiprocessing
-# from tqdm.auto import tqdm
-import tqdm
 import bebi103
 
 

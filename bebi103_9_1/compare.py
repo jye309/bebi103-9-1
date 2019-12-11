@@ -36,7 +36,7 @@ def make_qq(n, alpha, beta, beta1, beta2):
         beta1: MLE estimate for rate of arrival of chemical reaction 1 successive poissson distribution
         beta2: MLE estimate for rate of arrival of chemical reaction 2 in successive poissson distribution
     '''
-    n = catastrophe_times_12uM
+    
     samples_gamma = np.array([draw_gamma(alpha, beta, size=len(n)) for _ in range(5000)])
     samples_model = np.array([draw_model(beta1, beta2, size=len(n)) for _ in range(5000)])
 
