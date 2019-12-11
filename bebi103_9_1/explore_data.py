@@ -29,8 +29,8 @@ def display_strip_box(df, kdmis, vdims):
     # Make a box plot
     p = bokeh_catplot.box(
         data=df.dropna(),
-        cats='concentration',
-        val='time to catastrophe (s)',
+        cats=kdims,
+        val=vdims,
         horizontal=False,
         box_kwargs=dict(fill_color='gray', fill_alpha=0.5),
         display_points=False, 
@@ -42,8 +42,8 @@ def display_strip_box(df, kdmis, vdims):
     # Overlay a jitter plot
     p = bokeh_catplot.strip(
         data=df.dropna(),
-        cats='concentration',
-        val='time to catastrophe (s)',
+        cats=kdims,
+        val=vdims,
         p=p,
         horizontal=False,
         jitter=True,
