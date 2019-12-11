@@ -38,7 +38,7 @@ def mle_iid_gamma(n):
 def gen_gamma(alpha, beta, size):
     return rg.gamma(alpha, scale=1/beta, size=size)  
 
-def get_mles():
+def get_mles(df):
     alphas = []
     betas = []
     conf = []
