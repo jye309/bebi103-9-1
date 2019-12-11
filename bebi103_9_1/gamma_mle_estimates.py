@@ -80,7 +80,7 @@ def draw_parametric_bs_reps_mle(
         [mle_fun(gen_fun(*params, size=len(data), *args)) for _ in iterator]
     )
 
-def draw_bs_all(df):
+def calc_conf_ints(df):
     '''
     Draw bootstrap replicates for all concentrations
     '''
@@ -90,3 +90,34 @@ def draw_bs_all(df):
         data = data[~np.isnan(data)]
         bs_reps = draw_parametric_bs_reps_mle(mle_iid_gamma, gen_gamma, data, size=5000, progress_bar=True)
         conf_ints.append(np.percentile(bs_reps, [2.5, 97.5], axis=0))
+        
+    return conf_ints
+        
+def plot_betas(conf_ints):
+    
+    beta_low = []
+    beta_high = []
+
+    # conf_ints
+
+    for conf in range(len(conf_ints)):
+        beta_low.append(conf_ints[conf][0][1])
+        beta_high.append(conf_ints[conf][1][1])
+
+    data = zip(df.concentration.unique(), betas, beta_low, beta_high)
+
+    df_betas = pd.DataFrame(data=data, columns=['concentration', 'betamles', 'conflow', 'confhi'])
+    df_betas.index.name = 'ID'
+    
+    low = [betas[i]-beta_low[i] for i in range(len(betas))]
+    high = [beta_high[i]-betas[i] for i in range(len(betas))]
+    errors = list(zip(df.concentration.unique(), betas, low, high))
+    
+    return hv.Curve(
+        errors, 'Concentration', 'Rate of Arrival'
+    ).opts(
+        title='Rates of Arrival',
+        width=500,
+        height=500,
+        ylim=(0.0055, 0.012)
+    ) * hv.ErrorBars(errors, vdims=['y', 'yerrneg', 'yerrpos'])

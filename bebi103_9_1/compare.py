@@ -1,17 +1,17 @@
 import numpy as np
-import pandas as pd
-import pandas as pd
-import scipy.optimize
-import scipy.stats as st
-import warnings
-import multiprocessing
-# from tqdm.auto import tqdm
-import tqdm
+# import pandas as pd
+# import pandas as pd
+# import scipy.optimize
+# import scipy.stats as st
+# import warnings
+# import multiprocessing
+# # from tqdm.auto import tqdm
+# import tqdm
 
-import bokeh.io
-import bokeh_catplot
-import holoviews as hv
-import matplotlib.pyplot as plt
+# import bokeh.io
+# import bokeh_catplot
+# import holoviews as hv
+# import matplotlib.pyplot as plt
 
 import bebi103
 
