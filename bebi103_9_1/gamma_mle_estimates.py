@@ -103,7 +103,7 @@ def calc_conf_ints(df):
         conf_ints.append(np.percentile(bs_reps, [2.5, 97.5], axis=0))        
     return conf_ints
         
-def plot_betas(conf_ints, betas):
+def plot_betas(df, conf_ints, betas):
     
     beta_low = []
     beta_high = []
