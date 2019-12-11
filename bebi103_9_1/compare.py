@@ -15,9 +15,9 @@ import numpy as np
 
 import bebi103
 
-hv.extension('bokeh')
-import bokeh.io
-bokeh.io.output_notebook()
+# hv.extension('bokeh')
+# import bokeh.io
+# bokeh.io.output_notebook()
 
 def draw_gamma(alpha, beta, size=1):
     rg = np.random.default_rng()
