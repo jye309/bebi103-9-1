@@ -36,6 +36,7 @@ def mle_iid_gamma(n):
         raise RuntimeError('Convergence failed with message', res.message)
         
 def gen_gamma(alpha, beta, size):
+    rg = np.random.default_rng()
     return rg.gamma(alpha, scale=1/beta, size=size)  
 
 def get_mles(df):
