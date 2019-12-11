@@ -25,7 +25,7 @@ def display_ecdf(df, cats, val):
 
     bokeh.io.show(p)
     
-def display_strip_box(df, kdmis, vdims):
+def display_strip_box(df, kdims, vdims):
     # Make a box plot
     p = bokeh_catplot.box(
         data=df.dropna(),
