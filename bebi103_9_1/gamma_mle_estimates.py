@@ -89,16 +89,13 @@ def calc_conf_ints(df):
         data = df.loc[df['concentration']==key, 'time to catastrophe (s)'].values
         data = data[~np.isnan(data)]
         bs_reps = draw_parametric_bs_reps_mle(mle_iid_gamma, gen_gamma, data, size=5000, progress_bar=True)
-        conf_ints.append(np.percentile(bs_reps, [2.5, 97.5], axis=0))
-        
+        conf_ints.append(np.percentile(bs_reps, [2.5, 97.5], axis=0))        
     return conf_ints
         
-def plot_betas(conf_ints):
+def plot_betas(conf_ints, betas):
     
     beta_low = []
     beta_high = []
-
-    # conf_ints
 
     for conf in range(len(conf_ints)):
         beta_low.append(conf_ints[conf][0][1])
