@@ -5,6 +5,16 @@ import scipy.optimize
 import scipy.stats as st
 import warnings
 import bebi103
+import tqdm
+
+def log_like_iid_gamma(params, n):
+    """Log likelihood for i.i.d. gamma measurements."""
+    alpha, beta = params
+
+    if alpha <= 0 or beta <= 0:
+        return -np.inf
+
+    return np.sum(st.gamma.logpdf(n, alpha, scale=1/beta))
 
 def mle_iid_gamma(n):
     """Perform maximum likelihood estimates for parameters for i.i.d.
